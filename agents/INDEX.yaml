@@ -1,0 +1,228 @@
+# Agent routing catalog. An AI assistant scans `triggers` against the current request to
+# pick the matching agent(s), then loads that agent's file (agents/<id>.md) for its full
+# workflow, constraints, and escalation conditions. `loads_skills` lists the skill ids
+# (see skills/INDEX.yaml) that agent typically needs -- still filter by the specific
+# request rather than loading all of them for every task.
+#
+# Schema (informal):
+#   id, path, title, triggers[], loads_skills[], loads_rules[], related_agents[]
+
+- id: architect
+  path: agents/architect.md
+  title: Architect Agent
+  triggers:
+    - design the architecture
+    - new service
+    - should we use microservices
+    - architecture decision
+    - adr
+    - modular monolith
+    - restructure the project
+    - evaluate tradeoffs
+  loads_skills:
+    - clean-architecture
+    - ddd
+    - cqrs
+    - modular-monolith
+    - microservices
+    - event-driven-architecture
+    - repository-specification
+    - result-pattern
+    - domain-events-and-outbox
+    - dependency-injection-design
+  loads_rules: [rules/architecture.md, rules/general.md]
+  related_agents: [dotnet-developer, api-engineer, database-engineer, security-reviewer, performance-engineer]
+
+- id: dotnet-developer
+  path: agents/dotnet-developer.md
+  title: .NET Developer Agent
+  triggers:
+    - implement
+    - add a feature
+    - fix the bug
+    - write the code for
+    - background service
+    - refactor
+  loads_skills:
+    - modern-csharp
+    - nullable-reference-types
+    - async-patterns
+    - aspnetcore-fundamentals
+    - dependency-injection
+    - configuration-options
+    - middleware-filters
+    - minimal-apis-vs-controllers
+    - model-validation-problemdetails
+    - background-services
+    - efcore-fundamentals
+  loads_rules: [rules/general.md, rules/csharp.md, rules/dotnet.md, rules/architecture.md, rules/testing.md]
+  related_agents: [architect, api-engineer, database-engineer, test-engineer, code-reviewer]
+
+- id: api-engineer
+  path: agents/api-engineer.md
+  title: API Engineer Agent
+  triggers:
+    - create an endpoint
+    - rest api
+    - minimal api
+    - controller
+    - api versioning
+    - openapi
+    - swagger
+    - pagination
+    - api contract
+  loads_skills:
+    - rest-api-design
+    - api-versioning-and-compatibility
+    - aspnetcore-fundamentals
+    - minimal-apis-vs-controllers
+    - model-validation-problemdetails
+    - authentication
+    - authorization
+    - integration-testing
+  loads_rules: [rules/api.md, rules/security.md, rules/dotnet.md, rules/testing.md]
+  related_agents: [dotnet-developer, security-reviewer, database-engineer, test-engineer, documentation-engineer]
+
+- id: database-engineer
+  path: agents/database-engineer.md
+  title: Database Engineer Agent
+  triggers:
+    - schema design
+    - migration
+    - optimize query
+    - execution plan
+    - index
+    - postgresql
+    - sql server
+    - efcore
+    - entity framework
+    - deadlock
+    - concurrency conflict
+  loads_skills:
+    - database-design
+    - sql-server
+    - postgresql
+    - efcore-fundamentals
+    - efcore-performance
+    - efcore-migrations
+  loads_rules: [rules/database.md, rules/performance.md, rules/testing.md]
+  related_agents: [architect, dotnet-developer, api-engineer, performance-engineer, test-engineer]
+
+- id: security-reviewer
+  path: agents/security-reviewer.md
+  title: Security Reviewer Agent
+  triggers:
+    - security review
+    - design authentication
+    - authorization
+    - jwt
+    - oauth
+    - oidc
+    - secrets
+    - is this vulnerable
+    - injection
+    - xss
+    - csrf
+    - ssrf
+  loads_skills:
+    - security-owasp
+    - authentication
+    - authorization
+    - jwt-oauth-oidc
+  loads_rules: [rules/security.md, rules/api.md]
+  related_agents: [api-engineer, dotnet-developer, code-reviewer, architect]
+
+- id: test-engineer
+  path: agents/test-engineer.md
+  title: Test Engineer Agent
+  triggers:
+    - write tests
+    - unit test
+    - integration test
+    - test coverage
+    - test data
+    - edge cases
+  loads_skills:
+    - unit-testing
+    - integration-testing
+    - architecture-testing
+    - test-data-management
+  loads_rules: [rules/testing.md, rules/api.md, rules/database.md, rules/security.md]
+  related_agents: [dotnet-developer, api-engineer, database-engineer, code-reviewer]
+
+- id: code-reviewer
+  path: agents/code-reviewer.md
+  title: Code Reviewer Agent
+  triggers:
+    - review this pr
+    - review this diff
+    - code review
+    - is this ready to merge
+  loads_skills: []
+  loads_rules: [rules/general.md, rules/csharp.md, rules/dotnet.md, rules/architecture.md, rules/api.md, rules/database.md, rules/security.md, rules/testing.md, rules/performance.md]
+  related_agents: [security-reviewer, performance-engineer, test-engineer, architect]
+
+- id: performance-engineer
+  path: agents/performance-engineer.md
+  title: Performance Engineer Agent
+  triggers:
+    - slow endpoint
+    - optimize performance
+    - high memory
+    - high cpu
+    - allocations
+    - profiling
+    - caching strategy
+    - scalability
+    - n+1
+  loads_skills:
+    - profiling-and-diagnostics
+    - caching-strategy
+    - scalability
+    - efcore-performance
+    - sql-server
+    - postgresql
+  loads_rules: [rules/performance.md, rules/database.md, rules/csharp.md]
+  related_agents: [database-engineer, dotnet-developer, code-reviewer, architect]
+
+- id: devops-engineer
+  path: agents/devops-engineer.md
+  title: DevOps Engineer Agent
+  triggers:
+    - dockerfile
+    - docker compose
+    - ci/cd
+    - github actions pipeline
+    - deploy
+    - deployment
+    - azure
+    - nginx
+    - systemd
+    - health check
+    - rollback
+  loads_skills:
+    - docker
+    - linux-hosting
+    - cicd-github-actions
+    - azure-deployment
+    - observability-and-monitoring
+    - health-checks
+  loads_rules: [rules/devops.md, rules/security.md]
+  related_agents: [architect, database-engineer, security-reviewer, performance-engineer]
+
+- id: documentation-engineer
+  path: agents/documentation-engineer.md
+  title: Documentation Engineer Agent
+  triggers:
+    - write the readme
+    - write an adr
+    - document this
+    - api documentation
+    - runbook
+    - troubleshooting guide
+    - architecture document
+  loads_skills:
+    - technical-writing
+    - adr-authoring
+  loads_rules: []
+  related_agents: [architect, api-engineer, database-engineer, devops-engineer]
