@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.27" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Modules\Orders\Orders.Contracts\Orders.Contracts.csproj" />
+    <ProjectReference Include="..\Modules\Orders\Orders.Module\Orders.Module.csproj" />
+    <ProjectReference Include="..\Modules\Inventory\Inventory.Contracts\Inventory.Contracts.csproj" />
+    <ProjectReference Include="..\Modules\Inventory\Inventory.Module\Inventory.Module.csproj" />
+  </ItemGroup>
+
+</Project>

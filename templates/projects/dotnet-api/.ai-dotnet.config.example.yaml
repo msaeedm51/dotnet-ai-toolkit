@@ -1,0 +1,25 @@
+# Copy to .ai-dotnet/config.yaml after vendoring the toolkit into your new project.
+# Schema: ../../../config/config.schema.json
+project:
+  name: "dotnet-api"
+  description: "A minimal ASP.NET Core Web API starting point."
+  type: api
+  architecture: []   # single-project API with no layering yet -- fill in if you adopt one
+
+backend:
+  framework: aspnetcore-minimal-api
+  dotnet_version: "8"
+  database:
+    engine: none
+    orm: none
+  authentication:
+    scheme: none
+
+deployment:
+  platform: linux-docker
+  containerized: false
+
+rules:
+  strict_architecture: false
+  require_tests: true
+  require_security_review: true

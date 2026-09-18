@@ -1,0 +1,26 @@
+# Copy to .ai-dotnet/config.yaml after vendoring the toolkit into your new project.
+# Schema: ../../../config/config.schema.json
+project:
+  name: "modular-monolith-template"
+  description: "Orders + Inventory modules demonstrating enforced module boundaries in a single deployable."
+  type: modular-monolith
+  architecture:
+    - modular-monolith
+
+backend:
+  framework: aspnetcore-minimal-api
+  dotnet_version: "8"
+  database:
+    engine: none   # each module uses an in-memory store in this template; give each module
+                    # its own schema/tables (never a shared cross-module table) when you add
+                    # a real database -- see skills/data/database-design.md
+    orm: none
+
+deployment:
+  platform: linux-docker
+  containerized: false
+
+rules:
+  strict_architecture: true
+  require_tests: true
+  require_security_review: true
