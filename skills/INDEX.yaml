@@ -1,0 +1,129 @@
+# Skill catalog. An AI assistant matches `triggers` against the current request and
+# `tech` against .ai-dotnet/config.yaml to decide which skill files to load -- see
+# AGENTS.md #2. `related_skills`/`related_agents`/`related_rules` let an assistant pull in
+# adjacent context only when the specific task calls for it.
+#
+# Status: tier-1 (highest-value, Batch 3) skills below. Tier-2 skills land in Batch 6 --
+# until then, some related_skills/related_rules entries below are forward references that
+# tools/validate_index.py will report as unresolved; that's expected mid-build, see
+# CHANGELOG.md.
+
+- id: aspnetcore-fundamentals
+  path: skills/dotnet/aspnetcore-fundamentals.md
+  title: ASP.NET Core Fundamentals
+  category: dotnet
+  triggers: [asp.net core, program.cs, middleware pipeline, service registration, dependency injection container, minimal api setup]
+  tech: [dotnet8+, aspnetcore]
+  related_skills: [dependency-injection, configuration-options, middleware-filters, minimal-apis-vs-controllers, health-checks]
+  related_agents: [dotnet-developer, api-engineer]
+  related_rules: [rules/dotnet.md, rules/architecture.md]
+
+- id: modern-csharp
+  path: skills/csharp/modern-csharp.md
+  title: Modern C#
+  category: csharp
+  triggers: [c# style, records, primary constructor, nullable reference types, pattern matching, modern c# features]
+  tech: [dotnet8+, csharp]
+  related_skills: [nullable-reference-types, async-patterns, ddd, result-pattern]
+  related_agents: [dotnet-developer, code-reviewer]
+  related_rules: [rules/csharp.md]
+
+- id: clean-architecture
+  path: skills/architecture/clean-architecture.md
+  title: Clean Architecture
+  category: architecture
+  triggers: [clean architecture, layered architecture, dependency rule, domain layer, application layer, infrastructure layer]
+  tech: [dotnet8+, architecture]
+  related_skills: [ddd, cqrs, repository-specification, result-pattern, architecture-testing]
+  related_agents: [architect, dotnet-developer]
+  related_rules: [rules/architecture.md]
+
+- id: cqrs
+  path: skills/architecture/cqrs.md
+  title: CQRS
+  category: architecture
+  triggers: [cqrs, command query separation, command handler, query handler, read model, write model]
+  tech: [dotnet8+, architecture]
+  related_skills: [clean-architecture, ddd, result-pattern, efcore-fundamentals]
+  related_agents: [architect, dotnet-developer, api-engineer]
+  related_rules: [rules/architecture.md]
+
+- id: rest-api-design
+  path: skills/api/rest-api-design.md
+  title: REST API Design
+  category: api
+  triggers: [create an endpoint, rest api, http status codes, api contract, dto, pagination, resource modeling]
+  tech: [dotnet8+, aspnetcore, api]
+  related_skills: [api-versioning-and-compatibility, model-validation-problemdetails, authentication, authorization, integration-testing]
+  related_agents: [api-engineer, dotnet-developer, test-engineer]
+  related_rules: [rules/api.md, rules/security.md]
+
+- id: security-owasp
+  path: skills/security/security-owasp.md
+  title: Security Review (OWASP-Oriented)
+  category: security
+  triggers: [security review, owasp, injection, xss, csrf, ssrf, insecure deserialization, vulnerable dependency]
+  tech: [dotnet8+, aspnetcore, security]
+  related_skills: [authentication, authorization, jwt-oauth-oidc, rest-api-design]
+  related_agents: [security-reviewer, api-engineer, code-reviewer]
+  related_rules: [rules/security.md, rules/api.md]
+
+- id: authentication
+  path: skills/security/authentication.md
+  title: Authentication
+  category: security
+  triggers: [design authentication, jwt bearer, login, identity provider, authentication scheme]
+  tech: [dotnet8+, aspnetcore, security]
+  related_skills: [authorization, jwt-oauth-oidc, security-owasp]
+  related_agents: [security-reviewer, api-engineer]
+  related_rules: [rules/security.md]
+
+- id: unit-testing
+  path: skills/testing/unit-testing.md
+  title: Unit Testing
+  category: testing
+  triggers: [write unit tests, xunit, test a business rule, mock a dependency, test naming]
+  tech: [dotnet8+, testing]
+  related_skills: [integration-testing, test-data-management, architecture-testing]
+  related_agents: [test-engineer, dotnet-developer]
+  related_rules: [rules/testing.md]
+
+- id: integration-testing
+  path: skills/testing/integration-testing.md
+  title: Integration Testing
+  category: testing
+  triggers: [integration test, webapplicationfactory, testcontainers, test an endpoint end to end, test the database layer]
+  tech: [dotnet8+, testing]
+  related_skills: [unit-testing, rest-api-design, efcore-fundamentals, test-data-management]
+  related_agents: [test-engineer, api-engineer, database-engineer]
+  related_rules: [rules/testing.md]
+
+- id: efcore-fundamentals
+  path: skills/data/efcore-fundamentals.md
+  title: EF Core Fundamentals
+  category: data
+  triggers: [entity framework core, dbcontext, entity configuration, ef core migration, no-tracking query, n+1]
+  tech: [dotnet8+, efcore, sql-server, postgresql]
+  related_skills: [efcore-performance, efcore-migrations, database-design, sql-server, postgresql]
+  related_agents: [database-engineer, dotnet-developer]
+  related_rules: [rules/database.md]
+
+- id: sql-server
+  path: skills/data/sql-server.md
+  title: SQL Server
+  category: data
+  triggers: [sql server, execution plan, clustered index, rcsi, deadlock, ssms]
+  tech: [sql-server]
+  related_skills: [database-design, efcore-fundamentals, efcore-performance]
+  related_agents: [database-engineer, performance-engineer]
+  related_rules: [rules/database.md, rules/performance.md]
+
+- id: postgresql
+  path: skills/data/postgresql.md
+  title: PostgreSQL
+  category: data
+  triggers: [postgresql, postgres, explain analyze, jsonb, gin index, npgsql]
+  tech: [postgresql]
+  related_skills: [database-design, efcore-fundamentals, efcore-performance]
+  related_agents: [database-engineer, performance-engineer]
+  related_rules: [rules/database.md, rules/performance.md]
