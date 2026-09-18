@@ -11,7 +11,8 @@ be discoverable through an index, vendor-neutral, and small enough to load on it
    "the AI coding agent," never "Claude," "ChatGPT," "Copilot," etc. Vendor-specific
    phrasing belongs only in `adapters/`.
 2. **No duplication.** If guidance already exists in a rule, checklist, or another skill,
-   link to it (`[relative/path.md](relative/path.md)`) instead of restating it. If you find
+   link to it with a relative markdown link (e.g.
+   `[rest-api-design](skills/api/rest-api-design.md)`) instead of restating it. If you find
    yourself copying a paragraph, that paragraph belongs in one place and should be extracted.
 3. **Every new skill or agent file must be registered in its `INDEX.yaml`** in the same PR.
    An unregistered file is effectively invisible to the selective-loading system and CI will
@@ -94,7 +95,9 @@ entry must compile and its tests must pass before it's merged.
 - One logical addition per PR (e.g., "add postgresql performance skill," not "add 12 skills").
 - Fill in the PR template, including which `INDEX.yaml` entries you added or changed.
 - CI (`validate.yml`) checks: every indexed path resolves, every skill/agent file is indexed,
-  no vendor names appear outside `adapters/`, and markdown/YAML lint passes.
+  no vendor names appear outside `adapters/`, every relative markdown link resolves,
+  markdown/YAML lint passes, and all 4 `templates/projects/*` solutions build and their
+  tests pass.
 
 ## Reporting issues
 

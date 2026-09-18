@@ -21,6 +21,9 @@ jobs:
       - name: Validate INDEX.yaml consistency and vendor neutrality
         run: python tools/validate_index.py
 
+      - name: Check for broken relative markdown links
+        run: python tools/check_links.py
+
       - name: Validate config.example.yaml against schema
         run: |
           pip install jsonschema
@@ -56,3 +59,19 @@ jobs:
         uses: DavidAnson/markdownlint-cli2-action@v18
         with:
           globs: "**/*.md"
+
+  build-and-test-templates:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        template: [library, dotnet-api, clean-architecture, modular-monolith]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: dotnet test (${{ matrix.template }})
+        working-directory: templates/projects/${{ matrix.template }}
+        run: dotnet test

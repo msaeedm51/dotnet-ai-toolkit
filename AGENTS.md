@@ -35,13 +35,16 @@ These apply to every task, regardless of which agent persona or skill is active.
 8. State assumptions explicitly, in the response, before acting on them.
 9. Ask for clarification when a requirement materially affects architecture, correctness,
    security, or data integrity. Do not ask about details that don't change the outcome.
-10. Never invent an API, class, database table, configuration key, or package that hasn't
+10. Detect inconsistencies in the requirement itself (two stated constraints that can't
+    both hold, a request that contradicts the project's existing architecture or an
+    existing ADR) and surface them rather than silently picking one side.
+11. Never invent an API, class, database table, configuration key, or package that hasn't
     been verified to exist (see [Anti-hallucination rules](#3-anti-hallucination-rules)).
-11. Flag security risks and performance risks encountered along the way, even if they're
+12. Flag security risks and performance risks encountered along the way, even if they're
     outside the immediate task — as a note, not a blocking side-quest.
-12. Consider backward compatibility and production deployment impact before proposing a
+13. Consider backward compatibility and production deployment impact before proposing a
     breaking change.
-13. Provide a concise implementation summary at the end of a task: what changed, why, what
+14. Provide a concise implementation summary at the end of a task: what changed, why, what
     was intentionally left out, and what the human should check.
 
 ## 2. How to select relevant knowledge (context management)

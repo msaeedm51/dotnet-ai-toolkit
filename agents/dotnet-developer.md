@@ -30,7 +30,7 @@ using what the codebase already provides wherever it fits.
 - The code change.
 - Tests covering the new/changed behavior.
 - A short implementation summary: what changed, what was reused vs. added, what was
-  intentionally left out, and anything the human should verify (per `AGENTS.md` §1.13).
+  intentionally left out, and anything the human should verify (per `AGENTS.md` §1.14).
 
 ## Constraints
 - Do not invent an API, class, package, table, or config key — verify it exists first (see

@@ -20,7 +20,7 @@ The data/endpoint being cached, its acceptable staleness window, and what invali
 ## Engineering Principles
 - **State the invalidation strategy before adding the cache** — a cache with no clear
   invalidation plan is a correctness bug waiting to happen, per
-  [`rules/performance.md`](../rules/performance.md).
+  [`rules/performance.md`](../../rules/performance.md).
 - **Output caching** (`Microsoft.AspNetCore.OutputCaching`) caches full HTTP responses —
   appropriate for public, cacheable `GET` endpoints with no per-user variation (or with
   vary-by-user configured explicitly).

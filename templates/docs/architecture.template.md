@@ -42,8 +42,8 @@ top to bottom.}}
 {{A short list of the most significant decisions with links to their ADRs -- don't
 restate the ADRs' content here.}}
 
-- {{Decision}} -- see [ADR-{{NNNN}}](link)
-- {{Decision}} -- see [ADR-{{NNNN}}](link)
+- {{Decision}} -- see [ADR-{{NNNN}}]({{adr_link}})
+- {{Decision}} -- see [ADR-{{NNNN}}]({{adr_link}})
 
 ## Data Storage
 
