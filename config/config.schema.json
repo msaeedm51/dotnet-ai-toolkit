@@ -1,0 +1,157 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/<org>/dotnet-ai-toolkit/config/config.schema.json",
+  "title": "dotnet-ai-toolkit project configuration",
+  "description": "Describes a consumer project's actual technology and architecture choices so an AI assistant can select applicable skills, rules, and agents from the toolkit instead of assuming a fixed stack. See RULES.md for how these values interact with rule precedence.",
+  "type": "object",
+  "required": ["project"],
+  "additionalProperties": false,
+  "properties": {
+    "toolkit_version": {
+      "type": "string",
+      "description": "Git tag of dotnet-ai-toolkit this config was written against, e.g. 'v1.0.0'. Used to detect drift when the submodule is updated."
+    },
+    "project": {
+      "type": "object",
+      "required": ["name", "type"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "type": {
+          "type": "string",
+          "enum": ["api", "web-app", "library", "microservice", "modular-monolith", "worker-service", "cli-tool", "other"]
+        },
+        "architecture": {
+          "type": "array",
+          "description": "Zero or more architecture styles actually in use. Empty or omitted means the AI assistant must run workflows/project-discovery.md before assuming any.",
+          "items": {
+            "type": "string",
+            "enum": ["clean-architecture", "ddd", "cqrs", "modular-monolith", "microservices", "layered", "vertical-slice", "event-driven", "other"]
+          },
+          "default": []
+        }
+      }
+    },
+    "backend": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "framework": {
+          "type": "string",
+          "enum": ["aspnetcore-minimal-api", "aspnetcore-mvc", "aspnetcore-hybrid", "none"]
+        },
+        "dotnet_version": {
+          "type": "string",
+          "description": "e.g. '8', '9'. Determines which language/runtime features are safe to suggest."
+        },
+        "database": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "engine": {
+              "type": "string",
+              "enum": ["sql-server", "postgresql", "sqlite", "none", "other"]
+            },
+            "orm": {
+              "type": "string",
+              "enum": ["efcore", "dapper", "none", "other"]
+            },
+            "role": {
+              "type": "string",
+              "description": "How this database is used, per skills/data/database-design.md's distinctions.",
+              "enum": ["primary", "legacy", "read-only", "reporting", "external"]
+            }
+          }
+        },
+        "messaging": {
+          "type": "string",
+          "enum": ["none", "azure-service-bus", "rabbitmq", "kafka", "other"]
+        },
+        "authentication": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "scheme": {
+              "type": "string",
+              "enum": ["jwt", "cookie", "oauth2", "oidc", "none", "other"]
+            },
+            "identity_provider": {
+              "type": "string",
+              "description": "e.g. 'azure-ad', 'auth0', 'identityserver', 'custom'."
+            }
+          }
+        }
+      }
+    },
+    "frontend": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "framework": {
+          "type": "string",
+          "enum": ["react", "none", "other"]
+        },
+        "language": {
+          "type": "string",
+          "enum": ["typescript", "javascript", "none"]
+        }
+      }
+    },
+    "deployment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "platform": {
+          "type": "string",
+          "enum": ["azure", "linux-docker", "kubernetes", "iis", "other"]
+        },
+        "containerized": { "type": "boolean" }
+      }
+    },
+    "rules": {
+      "type": "object",
+      "description": "Toggles that strengthen or relax default rule enforcement for this project. See RULES.md precedence: these take effect above generic .NET defaults but below explicit project architecture decisions (ADRs).",
+      "additionalProperties": false,
+      "properties": {
+        "strict_architecture": {
+          "type": "boolean",
+          "default": true,
+          "description": "If true, dependency-direction and layering rules in rules/architecture.md are hard blockers, not suggestions."
+        },
+        "require_tests": { "type": "boolean", "default": true },
+        "require_security_review": { "type": "boolean", "default": true },
+        "require_integration_tests_for": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["database", "api", "messaging", "authentication"] },
+          "default": []
+        },
+        "enforce_nullable_reference_types": { "type": "boolean", "default": true }
+      }
+    },
+    "overrides": {
+      "type": "object",
+      "description": "Explicit, deliberate deviations from toolkit defaults for this project. Every entry must include a reason so the AI assistant does not silently 're-apply' a rule the team already decided against.",
+      "additionalProperties": false,
+      "properties": {
+        "disabled_rules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["rule", "reason"],
+            "additionalProperties": false,
+            "properties": {
+              "rule": { "type": "string", "description": "Path or id of the rule being disabled, e.g. 'rules/api.md#no-domain-entities-in-responses'." },
+              "reason": { "type": "string" }
+            }
+          },
+          "default": []
+        },
+        "notes": {
+          "type": "string",
+          "description": "Free-text context an AI assistant should read before making architecture-affecting suggestions, e.g. pointers to ADRs."
+        }
+      }
+    }
+  }
+}

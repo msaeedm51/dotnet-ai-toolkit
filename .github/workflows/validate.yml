@@ -1,0 +1,58 @@
+name: Validate toolkit consistency
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Validate INDEX.yaml consistency and vendor neutrality
+        run: python tools/validate_index.py
+
+      - name: Validate config.example.yaml against schema
+        run: |
+          pip install jsonschema
+          python - <<'PY'
+          import json, yaml, sys
+          from jsonschema import validate, ValidationError
+
+          schema = json.load(open("config/config.schema.json"))
+          instance = yaml.safe_load(open("config/config.example.yaml"))
+          try:
+              validate(instance=instance, schema=schema)
+              print("OK: config.example.yaml is valid against config.schema.json")
+          except ValidationError as e:
+              print(f"config.example.yaml failed schema validation: {e.message}")
+              sys.exit(1)
+          PY
+
+  lint-markdown-yaml:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint YAML
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          config_data: |
+            extends: default
+            rules:
+              line-length: disable
+              document-start: disable
+
+      - name: Lint Markdown
+        uses: DavidAnson/markdownlint-cli2-action@v18
+        with:
+          globs: "**/*.md"

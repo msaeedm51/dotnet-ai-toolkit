@@ -1,0 +1,47 @@
+# Copy this file to .ai-dotnet/config.yaml in your project root and edit the values below.
+# Schema: config/config.schema.json
+# Unknown/omitted sections mean "not determined yet" -- the AI assistant should run
+# workflows/project-discovery.md rather than guess, per AGENTS.md.
+
+toolkit_version: "v1.0.0"
+
+project:
+  name: "example-service"
+  description: "Order management API for the retail platform."
+  type: api
+  architecture:
+    - clean-architecture
+    - cqrs
+
+backend:
+  framework: aspnetcore-minimal-api
+  dotnet_version: "8"
+  database:
+    engine: postgresql
+    orm: efcore
+    role: primary
+  messaging: none
+  authentication:
+    scheme: jwt
+    identity_provider: azure-ad
+
+frontend:
+  framework: none
+  language: none
+
+deployment:
+  platform: linux-docker
+  containerized: true
+
+rules:
+  strict_architecture: true
+  require_tests: true
+  require_security_review: true
+  require_integration_tests_for:
+    - database
+    - api
+  enforce_nullable_reference_types: true
+
+overrides:
+  disabled_rules: []
+  notes: ""
