@@ -3,10 +3,7 @@
 # AGENTS.md #2. `related_skills`/`related_agents`/`related_rules` let an assistant pull in
 # adjacent context only when the specific task calls for it.
 #
-# Status: tier-1 (highest-value, Batch 3) skills below. Tier-2 skills land in Batch 6 --
-# until then, some related_skills/related_rules entries below are forward references that
-# tools/validate_index.py will report as unresolved; that's expected mid-build, see
-# CHANGELOG.md.
+# All 55 skills (12 tier-1 + 43 tier-2) are indexed as of Batch 6.
 
 - id: aspnetcore-fundamentals
   path: skills/dotnet/aspnetcore-fundamentals.md
@@ -127,3 +124,433 @@
   related_skills: [database-design, efcore-fundamentals, efcore-performance]
   related_agents: [database-engineer, performance-engineer]
   related_rules: [rules/database.md, rules/performance.md]
+
+- id: dependency-injection
+  path: skills/dotnet/dependency-injection.md
+  title: Dependency Injection
+  category: dotnet
+  triggers: [dependency injection, di lifetime, singleton scoped transient, service registration, captured dependency]
+  tech: [dotnet8+, aspnetcore]
+  related_skills: [aspnetcore-fundamentals, configuration-options, dependency-injection-design]
+  related_agents: [dotnet-developer, api-engineer]
+  related_rules: [rules/dotnet.md]
+
+- id: configuration-options
+  path: skills/dotnet/configuration-options.md
+  title: Configuration and the Options Pattern
+  category: dotnet
+  triggers: [options pattern, ioptions, appsettings, configuration binding, validate on start]
+  tech: [dotnet8+, aspnetcore]
+  related_skills: [aspnetcore-fundamentals, dependency-injection]
+  related_agents: [dotnet-developer]
+  related_rules: [rules/dotnet.md]
+
+- id: middleware-filters
+  path: skills/dotnet/middleware-filters.md
+  title: Middleware and Filters
+  category: dotnet
+  triggers: [middleware, endpoint filter, action filter, request pipeline, iendpointfilter]
+  tech: [dotnet8+, aspnetcore]
+  related_skills: [aspnetcore-fundamentals, model-validation-problemdetails]
+  related_agents: [dotnet-developer, api-engineer]
+  related_rules: [rules/dotnet.md]
+
+- id: minimal-apis-vs-controllers
+  path: skills/dotnet/minimal-apis-vs-controllers.md
+  title: Minimal APIs vs. Controllers
+  category: dotnet
+  triggers: [minimal api vs controller, mapgroup, apicontroller, route grouping]
+  tech: [dotnet8+, aspnetcore]
+  related_skills: [rest-api-design, aspnetcore-fundamentals]
+  related_agents: [api-engineer, dotnet-developer]
+  related_rules: [rules/api.md]
+
+- id: model-validation-problemdetails
+  path: skills/dotnet/model-validation-problemdetails.md
+  title: Model Validation and ProblemDetails
+  category: dotnet
+  triggers: [model validation, problemdetails, validation error response, fluentvalidation, 400 bad request]
+  tech: [dotnet8+, aspnetcore]
+  related_skills: [rest-api-design, result-pattern]
+  related_agents: [api-engineer, dotnet-developer]
+  related_rules: [rules/api.md]
+
+- id: background-services
+  path: skills/dotnet/background-services.md
+  title: Background Services
+  category: dotnet
+  triggers: [background service, hosted service, ihostedservice, scheduled job, worker]
+  tech: [dotnet8+, aspnetcore]
+  related_skills: [aspnetcore-fundamentals, dependency-injection, observability-and-monitoring]
+  related_agents: [dotnet-developer, devops-engineer]
+  related_rules: [rules/dotnet.md]
+
+- id: httpclient-resilience
+  path: skills/dotnet/httpclient-resilience.md
+  title: HttpClient and Resilience
+  category: dotnet
+  triggers: [httpclientfactory, retry policy, circuit breaker, polly, outbound http call, resilience pipeline]
+  tech: [dotnet8+, aspnetcore]
+  related_skills: [aspnetcore-fundamentals, scalability]
+  related_agents: [dotnet-developer, performance-engineer]
+  related_rules: [rules/dotnet.md, rules/performance.md]
+
+- id: logging-observability
+  path: skills/dotnet/logging-observability.md
+  title: Logging and Observability
+  category: dotnet
+  triggers: [structured logging, ilogger, opentelemetry, log level, correlation id]
+  tech: [dotnet8+, aspnetcore]
+  related_skills: [health-checks, observability-and-monitoring]
+  related_agents: [dotnet-developer, devops-engineer]
+  related_rules: [rules/dotnet.md, rules/security.md]
+
+- id: health-checks
+  path: skills/dotnet/health-checks.md
+  title: Health Checks
+  category: dotnet
+  triggers: [health check, liveness readiness, healthcheckoptions, ihealthcheck]
+  tech: [dotnet8+, aspnetcore]
+  related_skills: [aspnetcore-fundamentals, observability-and-monitoring]
+  related_agents: [dotnet-developer, devops-engineer]
+  related_rules: [rules/dotnet.md, rules/devops.md]
+
+- id: rate-limiting
+  path: skills/dotnet/rate-limiting.md
+  title: Rate Limiting
+  category: dotnet
+  triggers: [rate limiting, ratelimiter, throttle requests, 429 too many requests]
+  tech: [dotnet8+, aspnetcore]
+  related_skills: [rest-api-design, security-owasp]
+  related_agents: [api-engineer, security-reviewer]
+  related_rules: [rules/api.md]
+
+- id: output-and-distributed-caching
+  path: skills/dotnet/output-and-distributed-caching.md
+  title: Output Caching and Distributed Caching
+  category: dotnet
+  triggers: [output caching, distributed cache, idistributedcache, cache invalidation, redis cache]
+  tech: [dotnet8+, aspnetcore]
+  related_skills: [caching-strategy, profiling-and-diagnostics]
+  related_agents: [dotnet-developer, performance-engineer]
+  related_rules: [rules/performance.md]
+
+- id: nullable-reference-types
+  path: skills/csharp/nullable-reference-types.md
+  title: Nullable Reference Types
+  category: csharp
+  triggers: [nullable reference types, null-forgiving operator, required members, null handling]
+  tech: [dotnet8+, csharp]
+  related_skills: [modern-csharp, async-patterns]
+  related_agents: [dotnet-developer, code-reviewer]
+  related_rules: [rules/csharp.md]
+
+- id: async-patterns
+  path: skills/csharp/async-patterns.md
+  title: Async Patterns
+  category: csharp
+  triggers: [async await, cancellationtoken, task.whenall, sync over async, async void]
+  tech: [dotnet8+, csharp]
+  related_skills: [modern-csharp, httpclient-resilience]
+  related_agents: [dotnet-developer, code-reviewer]
+  related_rules: [rules/csharp.md]
+
+- id: ddd
+  path: skills/architecture/ddd.md
+  title: Domain-Driven Design (Tactical Patterns)
+  category: architecture
+  triggers: [domain driven design, aggregate root, value object, entity invariant, rich domain model]
+  tech: [dotnet8+, architecture]
+  related_skills: [clean-architecture, repository-specification, domain-events-and-outbox, result-pattern]
+  related_agents: [architect, dotnet-developer]
+  related_rules: [rules/architecture.md]
+
+- id: modular-monolith
+  path: skills/architecture/modular-monolith.md
+  title: Modular Monolith
+  category: architecture
+  triggers: [modular monolith, module boundary, bounded context, in-process module]
+  tech: [dotnet8+, architecture]
+  related_skills: [clean-architecture, microservices, architecture-testing]
+  related_agents: [architect, dotnet-developer]
+  related_rules: [rules/architecture.md]
+
+- id: microservices
+  path: skills/architecture/microservices.md
+  title: Microservices
+  category: architecture
+  triggers: [microservices, should we use microservices, service boundary, distributed system, saga pattern]
+  tech: [dotnet8+, architecture]
+  related_skills: [modular-monolith, event-driven-architecture, httpclient-resilience]
+  related_agents: [architect]
+  related_rules: [rules/architecture.md]
+
+- id: event-driven-architecture
+  path: skills/architecture/event-driven-architecture.md
+  title: Event-Driven Architecture
+  category: architecture
+  triggers: [event driven, message broker, publish subscribe, idempotent consumer, event schema]
+  tech: [dotnet8+, architecture]
+  related_skills: [domain-events-and-outbox, microservices, modular-monolith]
+  related_agents: [architect, dotnet-developer]
+  related_rules: [rules/architecture.md]
+
+- id: repository-specification
+  path: skills/architecture/repository-specification.md
+  title: Repository and Specification Patterns
+  category: architecture
+  triggers: [repository pattern, specification pattern, ispecification, irepository]
+  tech: [dotnet8+, architecture]
+  related_skills: [clean-architecture, ddd, efcore-fundamentals]
+  related_agents: [architect, dotnet-developer, database-engineer]
+  related_rules: [rules/architecture.md]
+
+- id: result-pattern
+  path: skills/architecture/result-pattern.md
+  title: Result Pattern (Railway-Oriented Programming)
+  category: architecture
+  triggers: [result pattern, railway oriented programming, result<t>, error type, avoid exceptions for control flow]
+  tech: [dotnet8+, architecture, csharp]
+  related_skills: [cqrs, clean-architecture, model-validation-problemdetails]
+  related_agents: [architect, dotnet-developer]
+  related_rules: [rules/architecture.md, rules/csharp.md]
+
+- id: domain-events-and-outbox
+  path: skills/architecture/domain-events-and-outbox.md
+  title: Domain Events and the Outbox Pattern
+  category: architecture
+  triggers: [domain events, outbox pattern, transactional outbox, savechanges interceptor]
+  tech: [dotnet8+, architecture, efcore]
+  related_skills: [ddd, event-driven-architecture, efcore-fundamentals]
+  related_agents: [architect, dotnet-developer, database-engineer]
+  related_rules: [rules/architecture.md, rules/database.md]
+
+- id: dependency-injection-design
+  path: skills/architecture/dependency-injection-design.md
+  title: Dependency Injection as an Architecture Tool
+  category: architecture
+  triggers: [dependency inversion, interface ownership, composition root, invert dependency direction]
+  tech: [dotnet8+, architecture]
+  related_skills: [dependency-injection, clean-architecture, repository-specification]
+  related_agents: [architect, dotnet-developer]
+  related_rules: [rules/architecture.md]
+
+- id: database-design
+  path: skills/data/database-design.md
+  title: Database Design
+  category: data
+  triggers: [schema design, normalization, database constraints, primary key design, table design]
+  tech: [sql-server, postgresql]
+  related_skills: [sql-server, postgresql, efcore-fundamentals]
+  related_agents: [database-engineer, architect]
+  related_rules: [rules/database.md]
+
+- id: efcore-performance
+  path: skills/data/efcore-performance.md
+  title: EF Core Performance
+  category: data
+  triggers: [efcore n+1, slow ef core query, asnotracking, split query, bulk update efcore]
+  tech: [dotnet8+, efcore]
+  related_skills: [efcore-fundamentals, profiling-and-diagnostics, sql-server, postgresql]
+  related_agents: [database-engineer, performance-engineer]
+  related_rules: [rules/database.md, rules/performance.md]
+
+- id: efcore-migrations
+  path: skills/data/efcore-migrations.md
+  title: EF Core Migrations
+  category: data
+  triggers: [ef core migration, dotnet ef migrations add, migration rollback, add-migration]
+  tech: [dotnet8+, efcore]
+  related_skills: [efcore-fundamentals, database-design]
+  related_agents: [database-engineer]
+  related_rules: [rules/database.md]
+
+- id: api-versioning-and-compatibility
+  path: skills/api/api-versioning-and-compatibility.md
+  title: API Versioning and Backward Compatibility
+  category: api
+  triggers: [api versioning, breaking change, backward compatibility, deprecate an endpoint]
+  tech: [dotnet8+, aspnetcore, api]
+  related_skills: [rest-api-design]
+  related_agents: [api-engineer, architect]
+  related_rules: [rules/api.md]
+
+- id: authorization
+  path: skills/security/authorization.md
+  title: Authorization
+  category: security
+  triggers: [authorization policy, resource based authorization, role based access, idor, ownership check]
+  tech: [dotnet8+, aspnetcore, security]
+  related_skills: [authentication, security-owasp]
+  related_agents: [security-reviewer, api-engineer]
+  related_rules: [rules/security.md]
+
+- id: jwt-oauth-oidc
+  path: skills/security/jwt-oauth-oidc.md
+  title: JWT, OAuth2, and OIDC Flow Selection
+  category: security
+  triggers: [oauth2 flow, oidc, authorization code pkce, client credentials flow, refresh token]
+  tech: [dotnet8+, aspnetcore, security]
+  related_skills: [authentication, authorization]
+  related_agents: [security-reviewer, api-engineer]
+  related_rules: [rules/security.md]
+
+- id: architecture-testing
+  path: skills/testing/architecture-testing.md
+  title: Architecture Testing
+  category: testing
+  triggers: [architecture test, netarchtest, enforce dependency rule, archunit]
+  tech: [dotnet8+, testing]
+  related_skills: [clean-architecture, modular-monolith, unit-testing]
+  related_agents: [test-engineer, architect]
+  related_rules: [rules/testing.md, rules/architecture.md]
+
+- id: test-data-management
+  path: skills/testing/test-data-management.md
+  title: Test Data Management
+  category: testing
+  triggers: [test data builder, object mother, bogus fake data, test fixture seeding]
+  tech: [dotnet8+, testing]
+  related_skills: [unit-testing, integration-testing]
+  related_agents: [test-engineer]
+  related_rules: [rules/testing.md, rules/security.md]
+
+- id: profiling-and-diagnostics
+  path: skills/performance/profiling-and-diagnostics.md
+  title: Profiling and Diagnostics
+  category: performance
+  triggers: [dotnet-trace, dotnet-counters, dotnet-gcdump, profile the application, thread pool starvation]
+  tech: [dotnet8+, performance]
+  related_skills: [caching-strategy, efcore-performance, async-patterns]
+  related_agents: [performance-engineer]
+  related_rules: [rules/performance.md]
+
+- id: caching-strategy
+  path: skills/performance/caching-strategy.md
+  title: Caching Strategy
+  category: performance
+  triggers: [caching strategy, cache invalidation strategy, cache stampede, when to cache]
+  tech: [dotnet8+, performance]
+  related_skills: [output-and-distributed-caching, profiling-and-diagnostics]
+  related_agents: [performance-engineer, dotnet-developer]
+  related_rules: [rules/performance.md]
+
+- id: scalability
+  path: skills/performance/scalability.md
+  title: Scalability
+  category: performance
+  triggers: [scalability, horizontal scaling, connection pool sizing, load testing, stateless design]
+  tech: [dotnet8+, performance]
+  related_skills: [profiling-and-diagnostics, efcore-performance, microservices]
+  related_agents: [performance-engineer, architect]
+  related_rules: [rules/performance.md]
+
+- id: react
+  path: skills/frontend/react.md
+  title: React
+  category: frontend
+  triggers: [react component, react hooks, react query, loading error state]
+  tech: [react, typescript]
+  related_skills: [typescript, frontend-api-integration]
+  related_agents: [dotnet-developer]
+  related_rules: [rules/frontend.md]
+
+- id: typescript
+  path: skills/frontend/typescript.md
+  title: TypeScript
+  category: frontend
+  triggers: [typescript strict mode, discriminated union, typescript types for api, avoid any]
+  tech: [typescript]
+  related_skills: [react, frontend-api-integration]
+  related_agents: [dotnet-developer]
+  related_rules: [rules/frontend.md]
+
+- id: frontend-api-integration
+  path: skills/frontend/frontend-api-integration.md
+  title: Frontend API Integration
+  category: frontend
+  triggers: [frontend api client, fetch wrapper, handle 401 on frontend, problemdetails frontend]
+  tech: [react, typescript]
+  related_skills: [react, typescript, rest-api-design]
+  related_agents: [dotnet-developer, api-engineer]
+  related_rules: [rules/frontend.md]
+
+- id: docker
+  path: skills/devops/docker.md
+  title: Docker
+  category: devops
+  triggers: [dockerfile, multi-stage docker build, containerize dotnet app, docker image]
+  tech: [docker]
+  related_skills: [linux-hosting, cicd-github-actions, health-checks]
+  related_agents: [devops-engineer]
+  related_rules: [rules/devops.md]
+
+- id: linux-hosting
+  path: skills/devops/linux-hosting.md
+  title: Linux Hosting
+  category: devops
+  triggers: [nginx reverse proxy, systemd service, kestrel behind proxy, forwarded headers]
+  tech: [linux, docker]
+  related_skills: [docker, observability-and-monitoring]
+  related_agents: [devops-engineer]
+  related_rules: [rules/devops.md]
+
+- id: azure-deployment
+  path: skills/devops/azure-deployment.md
+  title: Azure Deployment
+  category: devops
+  triggers: [azure app service, azure container apps, azure key vault, managed identity, bicep]
+  tech: [azure]
+  related_skills: [docker, cicd-github-actions, observability-and-monitoring]
+  related_agents: [devops-engineer]
+  related_rules: [rules/devops.md, rules/security.md]
+
+- id: cicd-github-actions
+  path: skills/devops/cicd-github-actions.md
+  title: CI/CD with GitHub Actions
+  category: devops
+  triggers: [github actions workflow, ci pipeline, cd pipeline, github actions secrets]
+  tech: [github-actions]
+  related_skills: [docker, azure-deployment, integration-testing]
+  related_agents: [devops-engineer]
+  related_rules: [rules/devops.md, rules/git.md]
+
+- id: observability-and-monitoring
+  path: skills/devops/observability-and-monitoring.md
+  title: Observability and Monitoring
+  category: devops
+  triggers: [observability, monitoring dashboard, alerting, opentelemetry export, azure monitor]
+  tech: [dotnet8+, devops]
+  related_skills: [logging-observability, health-checks]
+  related_agents: [devops-engineer, performance-engineer]
+  related_rules: [rules/devops.md]
+
+- id: technical-writing
+  path: skills/documentation/technical-writing.md
+  title: Technical Writing
+  category: documentation
+  triggers: [write documentation, readme, runbook, feature documentation, api documentation]
+  tech: [documentation]
+  related_skills: [adr-authoring]
+  related_agents: [documentation-engineer]
+  related_rules: []
+
+- id: adr-authoring
+  path: skills/documentation/adr-authoring.md
+  title: ADR Authoring
+  category: documentation
+  triggers: [architecture decision record, write an adr, adr template]
+  tech: [documentation]
+  related_skills: [technical-writing]
+  related_agents: [documentation-engineer, architect]
+  related_rules: []
+
+- id: git-workflow
+  path: skills/git/git-workflow.md
+  title: Git Workflow
+  category: git
+  triggers: [commit message, git branch naming, force push, pull request description]
+  tech: [git]
+  related_skills: []
+  related_agents: []
+  related_rules: [rules/git.md]
