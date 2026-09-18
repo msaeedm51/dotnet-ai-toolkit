@@ -54,13 +54,18 @@ git commit -m "Add dotnet-ai-toolkit"
 
 Then:
 
-1. Copy `.ai-dotnet/config/config.example.yaml` to `.ai-dotnet/config.yaml` and fill in your
-   project's actual architecture and stack (schema: `config/config.schema.json`). If you
-   skip this, the AI assistant will run [`workflows/project-discovery.md`](workflows/project-discovery.md)
-   instead of guessing.
-2. Pick your platform's adapter under [`adapters/`](adapters/) and follow it to generate that
-   platform's entry-point file (e.g. `CLAUDE.md`, `.cursor/rules`,
-   `.github/copilot-instructions.md`). The adapter file is a pointer into `.ai-dotnet/`, not
+1. Run `./.ai-dotnet/tools/init-project.sh <adapter>` (one of `claude-code`, `chatgpt`,
+   `cursor`, `copilot`, `windsurf`, `generic`) from your project root. It creates
+   `.ai-dotnet/config.yaml` from the example (fill in your project's actual architecture and
+   stack — schema: `config/config.schema.json`) and generates that platform's entry-point
+   pointer file, without overwriting anything that already exists. Prefer doing this by hand?
+   Copy `.ai-dotnet/config/config.example.yaml` to `.ai-dotnet/config.yaml` yourself and follow
+   the matching file under [`adapters/`](adapters/) directly. Skipping `config.yaml` entirely
+   is fine too — the AI assistant will run
+   [`workflows/project-discovery.md`](workflows/project-discovery.md) instead of guessing.
+2. Read your platform's adapter under [`adapters/`](adapters/) for anything the generated
+   file doesn't cover (e.g. Cursor/Windsurf category-specific rules). The adapter file is a
+   pointer into `.ai-dotnet/`, not
    a copy of it — the knowledge stays in one place.
 3. Tell your AI assistant something like: *"Load the .NET engineering toolkit, inspect this
    project, and help me implement <feature>."* From there it selects the relevant agents,
