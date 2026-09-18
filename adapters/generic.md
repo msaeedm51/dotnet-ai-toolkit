@@ -13,10 +13,10 @@ externally. Simpler for contributors who don't want to think about submodule ini
 at the cost of a heavier repo and a slightly different update flow:
 
 ```bash
-git subtree add --prefix=.ai-dotnet https://github.com/<org>/dotnet-ai-toolkit.git v1.0.0 --squash
+git subtree add --prefix=.ai-dotnet https://github.com/msaeedm51/dotnet-ai-toolkit.git v1.0.0 --squash
 
 # later, to update:
-git subtree pull --prefix=.ai-dotnet https://github.com/<org>/dotnet-ai-toolkit.git v1.1.0 --squash
+git subtree pull --prefix=.ai-dotnet https://github.com/msaeedm51/dotnet-ai-toolkit.git v1.1.0 --squash
 ```
 
 **Manual sync** — for environments that can't use git submodules/subtrees at all (some
@@ -28,7 +28,7 @@ small script, tracking the version copied from in a comment at the top of
 #!/usr/bin/env bash
 TOOLKIT_VERSION="v1.0.0"
 rm -rf .ai-dotnet
-git clone --depth 1 --branch "$TOOLKIT_VERSION" https://github.com/<org>/dotnet-ai-toolkit.git .ai-dotnet
+git clone --depth 1 --branch "$TOOLKIT_VERSION" https://github.com/msaeedm51/dotnet-ai-toolkit.git .ai-dotnet
 rm -rf .ai-dotnet/.git
 echo "$TOOLKIT_VERSION" > .ai-dotnet/VERSION
 ```

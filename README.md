@@ -44,7 +44,7 @@ Recommended: vendor this repo as a git submodule pinned to a release tag, so upd
 deliberate.
 
 ```bash
-git submodule add https://github.com/<org>/dotnet-ai-toolkit.git .ai-dotnet
+git submodule add https://github.com/msaeedm51/dotnet-ai-toolkit.git .ai-dotnet
 cd .ai-dotnet
 git checkout v1.0.0
 cd ..

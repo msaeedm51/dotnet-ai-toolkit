@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/<org>/dotnet-ai-toolkit/config/config.schema.json",
+  "$id": "https://github.com/msaeedm51/dotnet-ai-toolkit/config/config.schema.json",
   "title": "dotnet-ai-toolkit project configuration",
   "description": "Describes a consumer project's actual technology and architecture choices so an AI assistant can select applicable skills, rules, and agents from the toolkit instead of assuming a fixed stack. See RULES.md for how these values interact with rule precedence.",
   "type": "object",
