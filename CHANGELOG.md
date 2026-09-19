@@ -21,6 +21,8 @@ reading the changelog entries between their old and new tag first.
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-09-19
+
 ### Added
 - Core operating system: `AGENTS.md` (AI behavior rules, selective-loading algorithm,
   anti-hallucination rules, agent roster), `RULES.md` (precedence system), `CONTRIBUTING.md`,
