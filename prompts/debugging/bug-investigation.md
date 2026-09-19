@@ -20,7 +20,7 @@ symptom points to).
 - `{{REPRO_STEPS}}` — reproduction steps if known; state "not yet reproduced" otherwise.
 
 ## Prompt Template
-```
+```text
 Load the .NET engineering toolkit and follow workflows/bug-fix.md for:
 
 Symptom: {{SYMPTOM}}

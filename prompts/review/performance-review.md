@@ -21,7 +21,7 @@ Agent: [`performance-engineer`](../../agents/performance-engineer.md). Skills:
   logs, metrics) — state "none yet" if starting from scratch.
 
 ## Prompt Template
-```
+```text
 Load the .NET engineering toolkit's performance-engineer agent and investigate:
 
 Symptom: {{SYMPTOM}}

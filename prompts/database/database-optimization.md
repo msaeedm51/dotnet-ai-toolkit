@@ -19,7 +19,7 @@ Agent: [`database-engineer`](../../agents/database-engineer.md). Skills:
   yet" otherwise.
 
 ## Prompt Template
-```
+```text
 Load the .NET engineering toolkit's database-engineer agent and optimize:
 
 {{QUERY_OR_OPERATION}}

@@ -20,7 +20,7 @@ Agent: [`api-engineer`](../../agents/api-engineer.md). Workflow:
   ownership) — state "unknown, please ask" if unclear.
 
 ## Prompt Template
-```
+```text
 Load the .NET engineering toolkit and follow workflows/api-development.md for:
 
 {{OPERATION}}

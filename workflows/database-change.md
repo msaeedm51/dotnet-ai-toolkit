@@ -4,7 +4,7 @@ Primary agent: [`database-engineer`](../agents/database-engineer.md). Primary sk
 [`skills/data/efcore-fundamentals.md`](../skills/data/efcore-fundamentals.md) and the
 engine-specific skill.
 
-```
+```text
 Requirement
   -> Schema impact
   -> Migration strategy

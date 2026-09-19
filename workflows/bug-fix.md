@@ -3,7 +3,7 @@
 A systematic path from symptom to a verified fix. The critical discipline: never present an
 unverified hypothesis as a confirmed root cause.
 
-```
+```text
 Symptom
   -> Reproduce
   -> Collect evidence

@@ -68,7 +68,7 @@ manually. The pattern is the same regardless of the specific mechanism:
 
 ## Minimal pointer template (works everywhere with any persistent-instructions mechanism)
 
-```
+```text
 This project uses the dotnet-ai-toolkit, vendored at .ai-dotnet/.
 
 Read .ai-dotnet/AGENTS.md and .ai-dotnet/RULES.md for operating principles and

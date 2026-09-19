@@ -20,7 +20,7 @@ Agent: [`database-engineer`](../../agents/database-engineer.md). Workflow:
   constraints on populated data (yes/no/unsure).
 
 ## Prompt Template
-```
+```text
 Load the .NET engineering toolkit's database-engineer agent and follow
 workflows/database-change.md for:
 

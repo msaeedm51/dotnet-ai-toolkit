@@ -3,7 +3,7 @@
 The default path from a requirement to a shipped, tested feature. Do not skip from
 requirement to code — each stage gates the next.
 
-```
+```text
 Requirement
   -> Clarify assumptions
   -> Inspect existing code

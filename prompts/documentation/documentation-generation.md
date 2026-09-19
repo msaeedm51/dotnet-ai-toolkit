@@ -19,7 +19,7 @@ Agent: [`documentation-engineer`](../../agents/documentation-engineer.md). Skill
   architecture doc / troubleshooting guide) — say "not sure, recommend one" if unclear.
 
 ## Prompt Template
-```
+```text
 Load the .NET engineering toolkit's documentation-engineer agent and document:
 
 {{SUBJECT}}

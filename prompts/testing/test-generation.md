@@ -20,7 +20,7 @@ Agent: [`test-engineer`](../../agents/test-engineer.md). Skills:
 - `{{KNOWN_EDGE_CASES}}` — any edge cases already known to matter (optional).
 
 ## Prompt Template
-```
+```text
 Load the .NET engineering toolkit's test-engineer agent and write tests for:
 
 {{TARGET}}

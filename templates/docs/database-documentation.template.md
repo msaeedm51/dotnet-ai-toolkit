@@ -30,6 +30,7 @@ anyone touching this doc -- e.g. "schema changes here require explicit sign-off 
 | {{column}} | {{type}} | {{PK / FK / NOT NULL / UNIQUE / CHECK}} | {{non-obvious notes}} |
 
 **Indexes:**
+
 | Index | Columns | Type | Purpose |
 |---|---|---|---|
 | {{name}} | {{columns}} | {{type}} | {{what query it serves}} |

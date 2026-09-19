@@ -1,4 +1,4 @@
-# Skill: Modern C#
+# Skill: Modern C\#
 
 ## Purpose
 Apply current, idiomatic C# (targeting C# 12 / .NET 8+) so new code looks like it belongs

@@ -20,7 +20,7 @@ brokers. A simple diagram (even ASCII) is often clearer than prose here.}}
 
 ## Module / Layer Structure
 
-```
+```text
 {{Actual directory/project structure with one-line responsibility per module, verified
 against the real solution, not aspirational.}}
 ```

@@ -61,7 +61,7 @@ USER app
 EXPOSE 8080
 ENTRYPOINT ["dotnet", "Orders.Api.dll"]
 ```
-```
+```text
 # .dockerignore
 **/bin/
 **/obj/

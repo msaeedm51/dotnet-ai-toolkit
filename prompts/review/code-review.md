@@ -18,7 +18,7 @@ Agent: [`code-reviewer`](../../agents/code-reviewer.md). Checklist:
   linked issue/description).
 
 ## Prompt Template
-```
+```text
 Load the .NET engineering toolkit's code-reviewer agent and review:
 
 {{DIFF_OR_PR}}

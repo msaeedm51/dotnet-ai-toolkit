@@ -17,7 +17,7 @@ Workflow: [`project-discovery`](../../workflows/project-discovery.md).
   processing module") rather than the whole codebase. Omit for a full survey.
 
 ## Prompt Template
-```
+```text
 Load the .NET engineering toolkit and run workflows/project-discovery.md against this
 project{{ if FOCUS_AREA }}, focused on {{FOCUS_AREA}}{{ endif }}.
 

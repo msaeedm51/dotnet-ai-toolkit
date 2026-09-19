@@ -20,7 +20,7 @@ Rules: [`rules/architecture.md`](../../rules/architecture.md).
   target) — state "none known, please ask if it matters" if unclear.
 
 ## Prompt Template
-```
+```text
 Load the .NET engineering toolkit's architect agent (agents/architect.md) and its
 supporting rules (rules/architecture.md).
 

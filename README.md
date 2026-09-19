@@ -20,7 +20,7 @@ adapter file per platform for free.
 
 ## Repository structure
 
-```
+```text
 AGENTS.md          AI operating principles + agent roster (start here)
 RULES.md            Rule categories + precedence system
 config/             JSON Schema + example for a consumer project's config.yaml

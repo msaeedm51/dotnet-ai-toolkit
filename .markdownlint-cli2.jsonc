@@ -2,9 +2,13 @@
   "config": {
     "default": true,
     "MD013": false,
+    "MD022": false, // compact style: content directly under headings, by design
+    "MD024": { "siblings_only": true },
+    "MD031": false, // compact style: fences directly after text
+    "MD032": false, // compact style: lists directly after text
     "MD033": false,
-    "MD041": false,
-    "MD024": { "siblings_only": true }
+    "MD036": false, // issue templates use bold field labels, not headings
+    "MD041": false
   },
   "globs": ["**/*.md"],
   "ignores": ["**/node_modules/**", "templates/projects/**"]

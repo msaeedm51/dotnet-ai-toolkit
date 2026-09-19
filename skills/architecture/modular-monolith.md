@@ -51,7 +51,7 @@ different teams own, what has genuinely different data).
 5. Add architecture tests enforcing the boundary.
 
 ## Code Standards
-```
+```text
 src/
   Modules/
     Orders/

@@ -20,7 +20,7 @@ Agent: [`security-reviewer`](../../agents/security-reviewer.md). Skill:
   provider) — helps ground recommendations in what's actually usable here.
 
 ## Prompt Template
-```
+```text
 Load the .NET engineering toolkit's security-reviewer agent and review:
 
 {{DIFF_OR_FEATURE}}

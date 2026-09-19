@@ -17,7 +17,7 @@ more chances to lose context) — match the sequence to the task's actual risk a
 ## Standard sequences
 
 ### Feature development
-```
+```text
 architect -> dotnet-developer -> test-engineer -> security-reviewer -> code-reviewer
 ```
 - `architect` hands off: boundaries/constraints, chosen pattern, risks, ADR if produced.
@@ -34,7 +34,7 @@ user input (per `config.yaml` `rules.require_security_review` and the implemente
 judgment) — see [`workflows/new-feature.md`](new-feature.md).
 
 ### Production bug
-```
+```text
 investigator -> dotnet-developer -> test-engineer -> code-reviewer
 ```
 "Investigator" is whichever agent fits the symptom's domain
@@ -46,7 +46,7 @@ investigator -> dotnet-developer -> test-engineer -> code-reviewer
 - `code-reviewer` hands off: final findings.
 
 ### Architecture decision
-```
+```text
 architect -> security-reviewer -> performance-engineer -> database-engineer -> architect (final)
 ```
 - Initial `architect` pass: frames the decision, options, and which specialist input is

@@ -50,7 +50,7 @@ broader system if it's one of several services.}}
 
 ## Project structure
 
-```
+```text
 {{high-level directory tree with one-line descriptions -- only what a newcomer actually
 needs to orient themselves, not every file}}
 ```

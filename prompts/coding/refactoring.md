@@ -17,7 +17,7 @@ Workflow: [`refactoring`](../../workflows/refactoring.md). Agent:
   duplication, preparing for an upcoming change).
 
 ## Prompt Template
-```
+```text
 Load the .NET engineering toolkit and follow workflows/refactoring.md for:
 
 Target: {{TARGET}}

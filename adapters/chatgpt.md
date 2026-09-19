@@ -25,7 +25,7 @@ pointer content below, and upload `AGENTS.md`, `RULES.md`, and the specific `ski
 GPT search across them per-request, giving a rough approximation of selective loading (not
 as precise as glob/trigger matching, but far better than one giant system prompt).
 
-```
+```text
 GPT Instructions:
 
 You are assisting with a .NET project that uses the dotnet-ai-toolkit. Your knowledge

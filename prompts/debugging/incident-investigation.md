@@ -24,7 +24,7 @@ fits the symptom's domain
   to.
 
 ## Prompt Template
-```
+```text
 Load the .NET engineering toolkit and follow workflows/production-incident.md.
 
 Impact: {{IMPACT}}

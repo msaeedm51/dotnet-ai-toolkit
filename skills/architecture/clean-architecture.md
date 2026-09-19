@@ -45,7 +45,7 @@ The feature/requirement, and the existing project's layer structure if one alrea
    Domain entity directly from an endpoint.
 
 ## Code Standards
-```
+```text
 src/
   Orders.Domain/          -- Order, OrderLine, OrderStatus, domain events. No package refs
                               beyond the BCL.

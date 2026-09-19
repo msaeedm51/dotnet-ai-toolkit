@@ -18,7 +18,7 @@ Agent: [`devops-engineer`](../../agents/devops-engineer.md) (plus
 - `{{TARGET_ENV}}` — the deployment target (`config.yaml` `deployment.platform`).
 
 ## Prompt Template
-```
+```text
 Load the .NET engineering toolkit's devops-engineer agent and assess deployment
 readiness for:
 

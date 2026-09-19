@@ -18,7 +18,7 @@ as needed). Workflow: [`new-feature`](../../workflows/new-feature.md).
 - `{{ACCEPTANCE_CRITERIA}}` — how to know it's done correctly (optional but recommended).
 
 ## Prompt Template
-```
+```text
 Load the .NET engineering toolkit and follow workflows/new-feature.md for this
 requirement:
 

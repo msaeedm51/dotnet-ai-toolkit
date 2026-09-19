@@ -4,7 +4,7 @@ Primary agent: [`performance-engineer`](../agents/performance-engineer.md). Same
 fact/hypothesis/confirmed discipline as [`workflows/bug-fix.md`](bug-fix.md) — never present
 an unverified hypothesis as a diagnosed cause.
 
-```
+```text
 Symptom
   -> Reproduce
   -> Collect evidence (profiler, execution plan, metrics, logs)
